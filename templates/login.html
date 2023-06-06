@@ -6,47 +6,49 @@
         <hr>
         <div class="row">
             <div class="col">
-                <form method="POST" action="">
+                <form method="POST" action="" class="border p-4 mt-2">
+                    {{ form_login.csrf_token }}
                     <legend>Login</legend>
                     <fieldset>
                         <div class="form-group">
-                            {{ form_login.email.label }}
-                            {{ form_login.email }}
+                            {{ form_login.email.label(class="form-control-label pb-1") }}
+                            {{ form_login.email(class="form-control") }}
                         </div>
                         <div class="form-group">
-                            {{ form_login.senha.label }}
-                            {{ form_login.senha }}
+                            {{ form_login.senha.label(class="form-control-label pb-1") }}
+                            {{ form_login.senha(class="form-control") }}
                         </div>
-                        <div class="form-group">
-                            {{ form_login.lembrar_dados.label }}
-                            {{ form_login.lembrar_dados }}
+                        <div class="form-group pt-2">
+                            {{ form_login.lembrar_dados.label(class="form-check-input-label") }}
+                            {{ form_login.lembrar_dados(class="form-check-input") }}
                         </div>
                     </fieldset>
-                    {{ form_login.botao_submit_login }}
+                    {{ form_login.botao_submit_login(class="btn btn-primary mt-2") }}
                 </form>
             </div>
             <div class="col">
-                <form method="POST" action="">
+                <form method="POST" action="" class="border p-4 mt-2">
+                    {{ form_criarConta.csrf_token }}
                     <legend>Criar Conta</legend>
                      <fieldset>
                          <div class="form_group">
-                             {{ form_criarConta.username.label }}
-                             {{ form_criarConta.username }}
+                             {{ form_criarConta.username.label(class="form-control-label pb-1") }}
+                             {{ form_criarConta.username(class="form-control") }}
                          </div>
                          <div class="form_group">
-                             {{ form_criarConta.email.label }}
-                             {{ form_criarConta.email }}
+                             {{ form_criarConta.email.label(class="form-control-label pb-1") }}
+                             {{ form_criarConta.email(class="form-control") }}
                          </div>
                          <div class="form_group">
-                             {{ form_criarConta.senha.label }}
-                             {{ form_criarConta.senha }}
+                             {{ form_criarConta.senha.label(class="form-control-label pb-1") }}
+                             {{ form_criarConta.senha(class="form-control") }}
                          </div>
                          <div class="form_group">
-                             {{ form_criarConta.confirmacao_senha.label }}
-                             {{ form_criarConta.confirmacao_senha }}
+                             {{ form_criarConta.confirmacao_senha.label(class="form-control-label pb-1") }}
+                             {{ form_criarConta.confirmacao_senha(class="form-control") }}
                          </div>
                       </fieldset>
-                    {{ form_criarConta.botao_submit_criarconta }}
+                    {{ form_criarConta.botao_submit_criarconta(class="btn btn-primary mt-2") }}
                 </form>
             </div>
         </div>

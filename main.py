@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request, redirect, flash
 from forms import FormLogin, FormCriarConta
 
 app = Flask(__name__)
@@ -20,10 +20,18 @@ def contato():
 def usuarios():
     return render_template('usuarios.html', lista_usuarios=lista_usuarios)
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form_login = FormLogin()
     form_criarConta = FormCriarConta()
+
+    if form_login.validate_on_submit() and 'botao_submit_login' in request.form:
+        flash('Login com sucesso no email {}'.format(form_login.email.data), 'alert-success')
+        return redirect(url_for('home'))
+
+    if form_criarConta.validate_on_submit() and 'botao_submit_criarconta' in request.form:
+        flash('Conta criada para o email {}'.format('form_criarConta.email.data'), 'alert-success')
+        return redirect(url_for('home'))
     return render_template('login.html', lista_usuarios=lista_usuarios, form_login=form_login, form_criarConta=form_criarConta)
 
 

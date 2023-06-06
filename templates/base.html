@@ -10,9 +10,21 @@
 
 </head>
 <body>
-
+    <!-- Separamos o código do navbar em outra aba, para facilitar a compreensão e evitar muita informação no body-->
     {% include 'navbar.html' %}
 
+    <!-- Para exibir as mensagens de alertas-->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class = "alert {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Cada página html terá este vínculo para comunicação, evitando repetir toda a estrutura do html-->
     {% block body%}
     {% endblock %}
 
