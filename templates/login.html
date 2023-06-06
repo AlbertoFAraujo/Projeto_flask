@@ -2,12 +2,52 @@
 
 {% block body %}
     <div class="container">
+        <h1>Faça Login ou Crie sua Conta para continuar</h1>
+        <hr>
         <div class="row">
             <div class="col">
-                <h1>Login</h1>
+                <form method="POST" action="">
+                    <legend>Login</legend>
+                    <fieldset>
+                        <div class="form-group">
+                            {{ form_login.email.label }}
+                            {{ form_login.email }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_login.senha.label }}
+                            {{ form_login.senha }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_login.lembrar_dados.label }}
+                            {{ form_login.lembrar_dados }}
+                        </div>
+                    </fieldset>
+                    {{ form_login.botao_submit_login }}
+                </form>
             </div>
             <div class="col">
-                <h1>Criar Conta</h1>
+                <form method="POST" action="">
+                    <legend>Criar Conta</legend>
+                     <fieldset>
+                         <div class="form_group">
+                             {{ form_criarConta.username.label }}
+                             {{ form_criarConta.username }}
+                         </div>
+                         <div class="form_group">
+                             {{ form_criarConta.email.label }}
+                             {{ form_criarConta.email }}
+                         </div>
+                         <div class="form_group">
+                             {{ form_criarConta.senha.label }}
+                             {{ form_criarConta.senha }}
+                         </div>
+                         <div class="form_group">
+                             {{ form_criarConta.confirmacao_senha.label }}
+                             {{ form_criarConta.confirmacao_senha }}
+                         </div>
+                      </fieldset>
+                    {{ form_criarConta.botao_submit_criarconta }}
+                </form>
             </div>
         </div>
     </div>
