@@ -128,7 +128,7 @@ venv.bak/
 .ropeproject
 
 # mkdocs documentation
-/site
+/siteFlask
 
 # mypy
 .mypy_cache/
